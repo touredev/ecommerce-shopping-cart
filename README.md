@@ -1,8 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# E-commerce Shopping Cart Application
 
-## Available Scripts
+This project is based on this course [Build Ecommerce Website by React & Redux in One hour](https://www.udemy.com/build-ecommerce-website-by-react-redux-in-one-hour). by [Bassir Jafarzadeh Diveshali](https://github.com/basir)
 
-In the project directory, you can run:
+## Install
+
+`$ clone https://github.com/touredev/ecommerce-shopping-cart.git`
 
 ### `npm start`
 
