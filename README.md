@@ -4,5 +4,5 @@ This project is based on this course [Build Ecommerce Website by React & Redux i
 
 ## Install
 
-`$ clone https://github.com/touredev/ecommerce-shopping-cart.git`
+`$ clone https://github.com/touredev/ecommerce-shopping-cart.git` <br/>
 `$ npm install`
