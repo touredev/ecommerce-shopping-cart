@@ -1,5 +1,11 @@
 import React from "react";
 import utils from "../services/utils";
+import { connect } from "react-redux";
+import { removeFromCart } from "../actions/cartActions";
+
+const mapStateToProps = state => ({
+  cartItems: state.cart.items
+});
 
 const Basket = ({ cartItems, handleARemoveFromCart }) => {
   return (
@@ -47,4 +53,7 @@ const Basket = ({ cartItems, handleARemoveFromCart }) => {
   );
 };
 
-export default Basket;
+export default connect(
+  mapStateToProps,
+  { removeFromCart }
+)(Basket);
