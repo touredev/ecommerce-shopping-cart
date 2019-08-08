@@ -1,6 +1,7 @@
 import {
   FETCH_PRODUCTS,
-  FILTER_PRODUCTS
+  FILTER_PRODUCTS_BY_SIZE,
+  ORDER_PRODUCTS_BY_PRICE
 } from "../actions/types";
 
 const initialState = {
@@ -17,9 +18,13 @@ export default function (state = initialState, action) {
       return {
         ...state, items: action.payload, filteredItems: action.payload
       };
-    case FILTER_PRODUCTS:
+    case FILTER_PRODUCTS_BY_SIZE:
       return {
-        ...state, sort: action.payload.sort, size: action.payload.size, filteredItems: action.payload.items
+        ...state, size: action.payload.size, filteredItems: action.payload.items
+      };
+    case ORDER_PRODUCTS_BY_PRICE:
+      return {
+        ...state, sort: action.payload.sort, filteredItems: action.payload.items
       };
     default:
       return state;

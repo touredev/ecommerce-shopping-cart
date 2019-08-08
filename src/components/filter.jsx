@@ -1,11 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { filterProducts } from "../actions/productActions";
+import { filterProducts, sortProducts } from "../actions/productActions";
 
-const Filter = ({ count, size, sort, products, filterProducts }) => {
+const Filter = ({
+  filteredProducts,
+  size,
+  sort,
+  products,
+  filterProducts,
+  sortProducts
+}) => {
   return (
     <div className="row">
-      <div className="col-md-4">{count} producs found.</div>
+      <div className="col-md-4">{filteredProducts.length} producs found.</div>
       <div className="col-md-4">
         <label htmlFor="">
           Order by
@@ -14,7 +21,7 @@ const Filter = ({ count, size, sort, products, filterProducts }) => {
             id=""
             className="form-control"
             value={sort}
-            onChange={e => filterProducts(products, e.target.value, size)}
+            onChange={e => sortProducts(filteredProducts, e.target.value)}
           >
             <option value="">Select</option>
             <option value="lowestprice">Lowest to highest</option>
@@ -28,7 +35,7 @@ const Filter = ({ count, size, sort, products, filterProducts }) => {
           <select
             className="form-control"
             value={size}
-            onChange={e => filterProducts(products, sort, e.target.value)}
+            onChange={e => filterProducts(products, e.target.value)}
           >
             <option value="">ALL</option>
             <option value="x">XS</option>
@@ -47,9 +54,9 @@ const Filter = ({ count, size, sort, products, filterProducts }) => {
 export default connect(
   state => ({
     products: state.products.items,
+    filteredProducts: state.products.filteredItems,
     sort: state.products.sort,
-    size: state.products.size,
-    count: state.products.filteredItems.length
+    size: state.products.size
   }),
-  { filterProducts }
+  { filterProducts, sortProducts }
 )(Filter);

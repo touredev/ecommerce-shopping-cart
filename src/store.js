@@ -1,10 +1,16 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import {
+  createStore,
+  applyMiddleware,
+  compose
+} from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const initialState = {};
 if (localStorage.getItem("cartItems")) {
-  initialState.cart = { items: JSON.parse(localStorage.getItem("cartItems")) };
+  initialState.cart = {
+    items: JSON.parse(localStorage.getItem("cartItems"))
+  };
 }
 
 const middleware = [thunk];
